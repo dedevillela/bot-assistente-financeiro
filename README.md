@@ -1,5 +1,5 @@
 # Assistente Financeiro 🤖 [![MIT License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE) [![Build Status](https://scrutinizer-ci.com/g/dedevillela/bot-assistente-financeiro/badges/build.png?b=master)](https://scrutinizer-ci.com/g/dedevillela/VRS-Operator-Flags/build-status/master) [![GitHub release](https://img.shields.io/github/release/dedevillela/bot-assistente-financeiro.svg)]()
-Chatbot desenvolvido no hackaton do "BLiP Botcamp" realizado na @takenet
+Chatbot desenvolvido no hackaton do "BLiP Botcamp" realizado na [@takenet](https://github.com/takenet).
 
 ## Pré-Requisitos
 - Node.js;
