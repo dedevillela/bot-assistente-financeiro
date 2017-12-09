@@ -2,7 +2,7 @@
  * Project Name: Assistente Financeiro
  * Plugin URI: https://github.com/dedevillela/bot-assistente-financeiro/
  * Description: Chatbot desenvolvido no hackaton do "BLiP Botcamp" realizado na TAKE.
- * Version: 0.0.1
+ * Version: 0.0.2
  * Author: Andre Aguiar Villela, Kenner Grings, Eric NH
  * License: MIT
  **/
@@ -95,7 +95,11 @@ client.addMessageReceiver(true, function (message) {
 
 	    		case "consultarsaldo":
 	    			if (bucket.transacoes.length == 0) {
-	    				responseMessage = "Você ainda não possui lançamentos";
+	    				responseMessage = {
+	    					"type": "image/gif",
+	    					"uri": "https://vignette.wikia.nocookie.net/the-house-of-anubis/images/e/e8/John-cleese-no.gif/revision/latest?cb=20140213190857",
+	    					"text": "Você ainda não possui lançamentos"
+	    			};
 	    				break;
 	    			}
 	    			responseMessage = {
