@@ -1,0 +1,17 @@
+{
+  "name": "Assistente Financeiro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "lime-transport-websocket": "^2.0.2",
+    "messaginghub-client": "^3.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andre Villela",
+  "license": "ISC",
+  "description": "Assistente Financeiro com BLiP e Node.js",
+  "repository": "https://github.com/dedevillela/"
+}
