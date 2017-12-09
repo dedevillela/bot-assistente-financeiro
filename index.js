@@ -3,7 +3,7 @@
  * Plugin URI: https://github.com/dedevillela/bot-assistente-financeiro/
  * Description: Chatbot desenvolvido no hackaton do "BLiP Botcamp" realizado na TAKE.
  * Version: 1.0.0
- * Author: Andre Aguiar Villela, Kenner Grings, Eric NH
+ * Author: Andre Aguiar Villela, Kenner Grings, Eric Alves
  * License: MIT
  **/
 let MessagingHub = require('messaginghub-client');
