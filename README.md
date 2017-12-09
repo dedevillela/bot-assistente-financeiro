@@ -3,11 +3,11 @@ Chatbot desenvolvido no hackaton do "BLiP Botcamp" realizado na @takenet
 
 ## Pré-Requisitos
 - Node.js;
-- Uma conta na a plataforma de chatbots do [![BLiP](https://blip.ai)];
-- Uma conta na plataforma de IA do [![Microsoft Luis](https://www.luis.ai)] ou [![IBM Watson](https://www.ibm.com/watson)];
+- Uma conta na a plataforma de chatbots do [BLiP](https://blip.ai);
+- Uma conta na plataforma de IA do [Microsoft Luis](https://www.luis.ai) ou [IBM Watson](https://www.ibm.com/watson);
 
 ## Instruções
 - Instale as dependências e levante a aplicação, como em https://github.com/takenet/messaginghub-client-js.
 
 ## Agradecimentos
-@ravpacheco da @takenet, @ericalves e Kenner Grings da @saipos.
+[@ravpacheco](https://github.com/ravpacheco) da [@takenet](https://github.com/takenet), [@ericalves](https://github.com/ericalves) e Kenner Grings da [@saipos](https://github.com/saipos).
