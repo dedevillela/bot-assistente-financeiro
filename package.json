@@ -1,6 +1,6 @@
 {
-  "name": "Assistente Financeiro",
-  "version": "1.0.0",
+  "name": "bot-assistente-financeiro",
+  "version": "1.0.1",
   "main": "index.js",
   "dependencies": {
     "lime-transport-websocket": "^2.0.2",
@@ -11,7 +11,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andre Villela",
-  "license": "ISC",
-  "description": "Assistente Financeiro com BLiP e Node.js",
-  "repository": "https://github.com/dedevillela/"
+  "license": "MIT",
+  "description": "Chatbot desenvolvido no hackaton do BLiP Botcamp realizado na @takenet.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dedevillela/bot-assistente-financeiro.git"
+  }
 }
