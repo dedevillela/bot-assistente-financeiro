@@ -162,9 +162,13 @@ client.addMessageReceiver(true, function (message) {
 						        text: "Tô ryco!"
 					    	};
 					    default:
-						console.log("intention>",transacao);
-						responseMessage = "Receita";
-						break;
+						gifuri = "https://i.imgur.com/O2MdBQw.gif";
+					        console.log("gifuri>", gifuri);
+					        responseMessage = {
+					        	type: "image/gif",
+						        uri: gifuri,
+						        text: "Tô ryco!"
+					    	};
 							
 					}
 					console.log("gifuri>",gifuri);
@@ -227,9 +231,15 @@ client.addMessageReceiver(true, function (message) {
 						        uri: gifuri,
 						        text: "Tô tite!"
 					    	};
+					    break;
 					    default:
-						console.log("intention>Receita");
-						responseMessage = "Receita";
+						gifuri = "https://i.imgur.com/RsI9t.gif";
+					        console.log("gifuri>", gifuri);
+					        responseMessage = {
+					        	type: "image/gif",
+						        uri: gifuri,
+						        text: "Tô tite!"
+					    	};
 					    break;
 					}
 					console.log('gifuri>',gifuri);
