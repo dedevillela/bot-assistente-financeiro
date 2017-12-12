@@ -228,7 +228,7 @@ client.addMessageReceiver(true, function (message) {
 						        text: "Tô tite!"
 					    	};
 					    default:
-						console.log("intention>",transacao);
+						console.log("intention>Receita");
 						responseMessage = "Receita";
 					    break;
 					}
