@@ -161,8 +161,13 @@ client.addMessageReceiver(true, function (message) {
 						        uri: gifuri,
 						        text: "Tô ryco!"
 					    	};
+					    default:
+						console.log("intention>",transacao);
+						responseMessage = "Receita";
+						break;
+							
 					}
-					console.log('gifuri>',gifuri);
+					console.log("gifuri>",gifuri);
 
 	    		break;
 
@@ -190,8 +195,6 @@ client.addMessageReceiver(true, function (message) {
 	    			bucket.transacoes.push(transacao);
 	    			bucket.saldo -= transacao.valor;
 
-
-
 	    			var gifresponse;
 					gifresponse = Math.floor(Math.random()*3)+1;
 					console.log('gifresponse>',gifresponse);
@@ -206,7 +209,7 @@ client.addMessageReceiver(true, function (message) {
 						        uri: gifuri,
 						        text: "Ótimo, receita lançada!"
 					    	};
-					        break;
+					    break;
 					    case 2:
 					        gifuri = "https://i.warosu.org/data/lit/img/0069/15/1438497333802.gif";
 					        console.log("gifuri>", gifuri);
@@ -215,7 +218,7 @@ client.addMessageReceiver(true, function (message) {
 						        uri: gifuri,
 						        text: "hmmmmm..."
 					    	};
-					        break;
+					    break;
 					    case 3:
 					    	gifuri = "https://i.imgur.com/RsI9t.gif";
 					        console.log("gifuri>", gifuri);
@@ -224,10 +227,18 @@ client.addMessageReceiver(true, function (message) {
 						        uri: gifuri,
 						        text: "Tô tite!"
 					    	};
+					    default:
+						console.log("intention>",transacao);
+						responseMessage = "Receita";
+					    break;
 					}
 					console.log('gifuri>',gifuri);
 
-	    		break;	 		
+	    		break;
+			default:
+				console.log("intention>",transacao);
+				responseMessage = "Receita";
+			break;
 	    	}
 
 			console.log('Nome Bucket Criar>>', bucketName);
