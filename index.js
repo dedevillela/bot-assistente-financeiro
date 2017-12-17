@@ -2,7 +2,7 @@
  * Project Name: Assistente Financeiro
  * Plugin URI: https://github.com/dedevillela/bot-assistente-financeiro/
  * Description: Chatbot desenvolvido no hackaton do "BLiP Botcamp" realizado na TAKE.
- * Version: 1.0.0
+ * Version: 1.0.2
  * Author: Andre Aguiar Villela, Kenner Grings, Eric Alves
  * License: MIT
  **/
@@ -29,7 +29,7 @@ client.addMessageReceiver(true, function (message) {
         if (bucketName.indexOf('/') > 0) {
         	bucketName = bucketName.substr(0,bucketName.indexOf('/')-1);
         }
-		var comando = {
+		var comandAI = {
 			"id": Lime.Guid(),
 			"to": "postmaster@ai.msging.net",
 			"method": "set",
@@ -120,7 +120,7 @@ client.addMessageReceiver(true, function (message) {
 	    				break;
 	    			}
 	    			try {
-						console.log("Valores>", valores);
+					console.log("Valores (lancarreceita) >", valores);
 		    			transacao.valor = parseFloat(valores[0]);
 	    			} catch (error) {
 	    				console.log('Erro conversao valor>', error);
@@ -129,11 +129,11 @@ client.addMessageReceiver(true, function (message) {
 	    			bucket.transacoes.push(transacao);
 	    			bucket.saldo += transacao.valor;
 	    			
-	    			var gifresponse;
-					gifresponse = Math.floor(Math.random()*3)+1;
-					console.log('gifresponse>',gifresponse);
+	    			var lancarreceitagif;
+					lancarreceitagif = Math.floor(Math.random()*3)+1;
+					console.log('lancarreceitagif>',lancarreceitagif);
 
-					var gifuri = gifresponse;
+					var gifuri = lancarreceitagif;
 					switch (gifuri) {
 					    case 1:
 					        gifuri = "https://big.assets.huffingtonpost.com/dinheiro07.gif";
@@ -190,7 +190,7 @@ client.addMessageReceiver(true, function (message) {
 	    				break;
 	    			}
 	    			try {
-						console.log("Valores>", valores);
+						console.log("Valores (lancardespesa) >", valores);
 		    			transacao.valor = parseFloat(valores[0]);
 	    			} catch (error) {
 	    				console.log('Erro conversao valor>', error);
@@ -199,11 +199,11 @@ client.addMessageReceiver(true, function (message) {
 	    			bucket.transacoes.push(transacao);
 	    			bucket.saldo -= transacao.valor;
 
-	    			var gifresponse;
-					gifresponse = Math.floor(Math.random()*3)+1;
-					console.log('gifresponse>',gifresponse);
+	    			var lancardespesagif;
+					lancardespesagif = Math.floor(Math.random()*3)+1;
+					console.log('lancardespesagif>',lancardespesagif);
 
-					var gifuri = gifresponse;
+					var gifuri = lancardespesagif;
 					switch (gifuri) {
 					    case 1:
 					        gifuri = "https://iruntheinternet.com/lulzdump/images/gifs/burning-money-dollars-table-fire-1378245820F.gif";
@@ -259,7 +259,7 @@ client.addMessageReceiver(true, function (message) {
 		        'uri': '/buckets/' + bucketName,
 		        'resource': bucket 
 		    }).then(function () {
-		    	console.log('Salvou');
+		    	console.log('Saved');
 				client.sendMessage({
 					id: Lime.Guid(),
 					type: (typeof responseMessage == "string") ? "text/plain" : "application/vnd.lime.media-link+json",
