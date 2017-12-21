@@ -10,6 +10,7 @@ Chatbot desenvolvido no hackaton do "BLiP Botcamp" realizado na [@takenet](https
 >*Inteligência Artificial
 
 ## Instruções
+- Clone ou baixe a aplicação em seu ambiente de desenvolvimento;
 - Instale as dependências e levante a aplicação, como em https://github.com/takenet/messaginghub-client-js.
 ```
 npm install --save messaginghub-client lime-transport-websocket
