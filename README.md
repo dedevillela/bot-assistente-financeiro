@@ -11,9 +11,9 @@ Chatbot desenvolvido no hackaton do "BLiP Botcamp" realizado na [@takenet](https
 
 ## Instruções
 - Instale as dependências e levante a aplicação, como em https://github.com/takenet/messaginghub-client-js.
-
-      npm install --save messaginghub-client lime-transport-websocket
-      node index.js
-
+```
+npm install --save messaginghub-client lime-transport-websocket
+node index.js
+```
 ## Agradecimentos
 [@ravpacheco](https://github.com/ravpacheco) da [@takenet](https://github.com/takenet), [@ericalves](https://github.com/ericalves) e Kenner Grings da [@saipos](https://github.com/saipos).
