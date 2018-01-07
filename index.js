@@ -29,7 +29,7 @@ client.addMessageReceiver(true, function (message) {
         if (bucketName.indexOf('/') > 0) {
         	bucketName = bucketName.substr(0,bucketName.indexOf('/')-1);
         }
-		var comandAI = {
+		var commandAI = {
 			"id": Lime.Guid(),
 			"to": "postmaster@ai.msging.net",
 			"method": "set",
@@ -115,7 +115,7 @@ client.addMessageReceiver(true, function (message) {
 	    				"descricao": message.content
 	    			};
 	    			var valores = message.content.match(/\d+([.,]\d{1,2})?/);
-	    			if (valores.length == 0) {
+	    			if (valores.length === 0) {
 	    				responseMessage = "Não entendi o valor dessa receita. Tente novamente.";
 	    				break;
 	    			}
@@ -161,6 +161,7 @@ client.addMessageReceiver(true, function (message) {
 						        uri: gifuri,
 						        text: "Tô ryco!"
 					    	};
+						break;
 					    default:
 						gifuri = "https://i.imgur.com/O2MdBQw.gif";
 					        console.log("gifuri>", gifuri);
