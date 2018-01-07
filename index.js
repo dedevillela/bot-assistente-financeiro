@@ -272,7 +272,7 @@ client.addMessageReceiver(true, function (message) {
 		    }).catch(function (error) {
 		    	console.log("Error set bucket>", error);
 		    });
-	    }
+	    };
 	} catch (error) {
 		console.log("Erro>>", error);
 	}
