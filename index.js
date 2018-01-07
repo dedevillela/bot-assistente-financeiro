@@ -60,7 +60,7 @@ client.addMessageReceiver(true, function (message) {
 		    		var newBucket = {
 		    			"saldo": 0,
 		    			"transacoes": []
-		    		}
+		    		};
 		    		doAction(intention, newBucket);
 		    	} else {
 		    		console.log("Error bucket>", error);
@@ -77,7 +77,7 @@ client.addMessageReceiver(true, function (message) {
 	    	switch (intention.name) {
 
 	    		case "consultarlancamentos":
-	    			if (bucket.transacoes.length == 0) {
+	    			if (bucket.transacoes.length === 0) {
 	    				responseMessage = {
 	    				"type": "image/gif",
 	    				"uri": "https://i1.wp.com/gifrific.com/wp-content/uploads/2012/08/noted-ryan-the-office.gif",
@@ -86,7 +86,7 @@ client.addMessageReceiver(true, function (message) {
 	    				break;
 	    			}
 	    			bucket.transacoes.forEach(function(transacao){
-	    				responseMessage += transacao.tipo + " - " + transacao.valor + " - " + transacao.descricao + "\n"
+	    				responseMessage += transacao.tipo + " - " + transacao.valor + " - " + transacao.descricao + "\n";
 	    			});
 	    			responseMessage += '-------------------------------- \n';
 	    			responseMessage += 'Saldo R$ ' + bucket.saldo;
@@ -94,7 +94,7 @@ client.addMessageReceiver(true, function (message) {
 	    			break;
 
 	    		case "consultarsaldo":
-	    			if (bucket.transacoes.length == 0) {
+	    			if (bucket.transacoes.length === 0) {
 	    				responseMessage = {
 	    					"type": "image/gif",
 	    					"uri": "https://vignette.wikia.nocookie.net/the-house-of-anubis/images/e/e8/John-cleese-no.gif/revision/latest?cb=20140213190857",
@@ -176,12 +176,12 @@ client.addMessageReceiver(true, function (message) {
 	    		break;
 
 	    		case "lancardespesa":
-	    			var transacao = {
+	    			transacao = {
 	    				"tipo": "Despesa",
 	    				"descricao": message.content
 	    			};
-	    			var valores = message.content.match(/\d+([.,]\d{1,2})?/);
-	    			if (valores.length == 0) {
+	    			valores = message.content.match(/\d+([.,]\d{1,2})?/);
+	    			if (valores.length === 0) {
 	    				responseMessage = {
 	    					type: "image/gif",
 	    					uri: "https://i.warosu.org/data/lit/img/0069/15/1438497333802.gif",
@@ -203,7 +203,7 @@ client.addMessageReceiver(true, function (message) {
 					lancardespesagif = Math.floor(Math.random()*3)+1;
 					console.log('lancardespesagif>',lancardespesagif);
 
-					var gifuri = lancardespesagif;
+					gifuri = lancardespesagif;
 					switch (gifuri) {
 					    case 1:
 					        gifuri = "https://iruntheinternet.com/lulzdump/images/gifs/burning-money-dollars-table-fire-1378245820F.gif";
