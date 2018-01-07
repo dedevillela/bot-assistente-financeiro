@@ -26,6 +26,7 @@ let client = new MessagingHub.ClientBuilder()
 client.addMessageReceiver(true, function (message) {
 	try {
         var bucketName = message.from;
+	var doAction = function(){};
         if (bucketName.indexOf('/') > 0) {
         	bucketName = bucketName.substr(0,bucketName.indexOf('/')-1);
         }
@@ -71,8 +72,8 @@ client.addMessageReceiver(true, function (message) {
 	    }).catch(function (error) {
 	    	console.log("Error AI>", error);
 	    });
-
-	    function doAction(intention, bucket) {
+    
+		doAction = function(intention, bucket) {
 	    	var responseMessage = "";
 	    	switch (intention.name) {
 
