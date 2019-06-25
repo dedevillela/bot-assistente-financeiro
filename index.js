@@ -6,15 +6,15 @@
  * Author: Andre Aguiar Villela, Kenner Grings, Eric Alves
  * License: MIT
  **/
-let MessagingHub = require('messaginghub-client');
-let WebSocketTransport = require('lime-transport-websocket');
-let Lime = require('lime-js');
+let MessagingHub = require("messaginghub-client");
+let WebSocketTransport = require("lime-transport-websocket");
+let Lime = require("lime-js");
 
 // inicializa a sessâo
 
 let client = new MessagingHub.ClientBuilder()
-    .withIdentifier('assistentefinanceiro')
-    .withAccessKey('b2lMRWRHNUFFemFYVWQ0R1FZWDY=')
+    .withIdentifier("assistentefinanceiro")
+    .withAccessKey("b2lMRWRHNUFFemFYVWQ0R1FZWDY=")
     .withTransportFactory(() => new WebSocketTransport())
     .build();
 
@@ -27,8 +27,8 @@ client.addMessageReceiver(true, function (message) {
 	try {
         var bucketName = message.from;
 	var doAction = function(){};
-        if (bucketName.indexOf('/') > 0) {
-        	bucketName = bucketName.substr(0,bucketName.indexOf('/')-1);
+        if (bucketName.indexOf("/") > 0) {
+        	bucketName = bucketName.substr(0,bucketName.indexOf("/")-1);
         }
 		var commandAI = {
 			"id": Lime.Guid(),
@@ -40,16 +40,16 @@ client.addMessageReceiver(true, function (message) {
 				"text": message.content
 			}
 		};
-		console.log('mensagem >', message);
+		console.log("mensagem >", message);
 		client.sendCommand(comando).then(function (commandResponse) {
 	        console.log("intenção>", commandResponse.resource.intentions[0]);
 	        var intention = commandResponse.resource.intentions[0];
 	        
-	        console.log('bucketName>>', bucketName);
+	        console.log("bucketName>>", bucketName);
 		    client.sendCommand({  
-		        'id': Lime.Guid(),
-		        'method': 'get',
-		        'uri': '/buckets/' + bucketName
+		        "id": Lime.Guid(),
+		        "method": "get",
+		        "uri": "/buckets/" + bucketName
 		    }).then(function (bucket) {
 		    	console.log('Bucket>', bucket);
 		    	doAction(intention, bucket.resource);
@@ -89,8 +89,8 @@ client.addMessageReceiver(true, function (message) {
 	    			bucket.transacoes.forEach(function(transacao){
 	    				responseMessage += transacao.tipo + " - " + transacao.valor + " - " + transacao.descricao + "\n";
 	    			});
-	    			responseMessage += '-------------------------------- \n';
-	    			responseMessage += 'Saldo R$ ' + bucket.saldo;
+	    			responseMessage += "-------------------------------- \n";
+	    			responseMessage += "Saldo R$ " + bucket.saldo;
 	    			
 	    			break;
 
@@ -124,7 +124,7 @@ client.addMessageReceiver(true, function (message) {
 					console.log("Valores (lancarreceita) >", valores);
 		    			transacao.valor = parseFloat(valores[0]);
 	    			} catch (error) {
-	    				console.log('Erro conversao valor>', error);
+	    				console.log("Erro conversao valor>", error);
 	    			}
 
 	    			bucket.transacoes.push(transacao);
@@ -132,7 +132,7 @@ client.addMessageReceiver(true, function (message) {
 	    			
 	    			var lancarreceitagif;
 					lancarreceitagif = Math.floor(Math.random()*3)+1;
-					console.log('lancarreceitagif>',lancarreceitagif);
+					console.log("lancarreceitagif>",lancarreceitagif);
 
 					var gifuri = lancarreceitagif;
 					switch (gifuri) {
@@ -195,7 +195,7 @@ client.addMessageReceiver(true, function (message) {
 						console.log("Valores (lancardespesa) >", valores);
 		    			transacao.valor = parseFloat(valores[0]);
 	    			} catch (error) {
-	    				console.log('Erro conversao valor>', error);
+	    				console.log("Erro conversao valor>", error);
 	    			}
 
 	    			bucket.transacoes.push(transacao);
@@ -203,7 +203,7 @@ client.addMessageReceiver(true, function (message) {
 
 	    			var lancardespesagif;
 					lancardespesagif = Math.floor(Math.random()*3)+1;
-					console.log('lancardespesagif>',lancardespesagif);
+					console.log("lancardespesagif>",lancardespesagif);
 
 					gifuri = lancardespesagif;
 					switch (gifuri) {
@@ -244,7 +244,7 @@ client.addMessageReceiver(true, function (message) {
 					    	};
 					    break;
 					}
-					console.log('gifuri>',gifuri);
+					console.log("gifuri>",gifuri);
 
 	    		break;
 			default:
@@ -253,15 +253,15 @@ client.addMessageReceiver(true, function (message) {
 			break;
 	    	}
 
-			console.log('Nome Bucket Criar>>', bucketName);
+			console.log("Nome Bucket Criar>>", bucketName);
 		    client.sendCommand({  
-		        'id': Lime.Guid(),
-		        'method': 'set',
-		        'type': 'application/json',
-		        'uri': '/buckets/' + bucketName,
-		        'resource': bucket 
+		        "id": Lime.Guid(),
+		        "method": "set",
+		        "type": "application/json",
+		        "uri": "/buckets/" + bucketName,
+		        "resource": bucket 
 		    }).then(function () {
-		    	console.log('Saved');
+		    	console.log("Saved");
 				client.sendMessage({
 					id: Lime.Guid(),
 					type: (typeof responseMessage == "string") ? "text/plain" : "application/vnd.lime.media-link+json",
@@ -274,13 +274,13 @@ client.addMessageReceiver(true, function (message) {
 		    });
 	    };
 	} catch (error) {
-		console.log("Erro>>", error);
+		console.log("Error>>", error);
 	}
 });
 
 client.connect()
 .then(function (session) {
-    console.log('Conectado');
+    console.log("Conectado");
 })
 .catch(function (err) {
     console.log(err);
