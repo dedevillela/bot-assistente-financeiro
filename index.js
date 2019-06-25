@@ -27,6 +27,7 @@ client.addMessageReceiver(true, function (message) {
 	try {
         var bucketName = message.from;
 	var doAction = function(){};
+	var comando = "";
         if (bucketName.indexOf("/") > 0) {
 		bucketName = bucketName.substr(0,bucketName.indexOf("/")-1);
         }
