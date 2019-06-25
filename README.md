@@ -6,7 +6,6 @@ Chatbot desenvolvido no hackaton do "BLiP Botcamp" realizado na [@takenet](https
 ## Pré-Requisitos
 
 -   Node.js;
-
 -   Uma conta na plataforma de chatbots do [BLiP](https://blip.ai);
 -   Uma conta na plataforma de IA* do [Microsoft Luis](https://www.luis.ai) ou [IBM Watson](https://www.ibm.com/watson);
 
@@ -21,5 +20,6 @@ Chatbot desenvolvido no hackaton do "BLiP Botcamp" realizado na [@takenet](https
 npm install --save messaginghub-client lime-transport-websocket
 node index.js
 ```
+
 ## Agradecimentos
 [@ravpacheco](https://github.com/ravpacheco) da [@takenet](https://github.com/takenet), [@ericalves](https://github.com/ericalves) e Kenner Grings da [@saipos](https://github.com/saipos).
