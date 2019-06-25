@@ -40,23 +40,23 @@ client.addMessageReceiver(true, function (message) {
 				"text": message.content
 			}
 		};
-		console.log("mensagem >", message);
+		//Console.log("mensagem >", message);
 		client.sendCommand(comando).then(function (commandResponse) {
-	        console.log("intenção>", commandResponse.resource.intentions[0]);
+	        //Console.log("intenção>", commandResponse.resource.intentions[0]);
 	        var intention = commandResponse.resource.intentions[0];
 	        
-	        console.log("bucketName>>", bucketName);
+	        //Console.log("bucketName>>", bucketName);
 		    client.sendCommand({  
 		        "id": Lime.Guid(),
 		        "method": "get",
 		        "uri": "/buckets/" + bucketName
 		    }).then(function (bucket) {
-		    	console.log('Bucket>', bucket);
+		    	//Console.log('Bucket>', bucket);
 		    	doAction(intention, bucket.resource);
 
 		    }).catch(function (error) {
-		    	console.log("Error bucket222>", error);
-		    	if (error.reason.code == 67) {
+		    	//Console.log("Error bucket222>", error);
+		    	if (error.reason.code === 67) {
 		    		console.log('Criar Bucket');
 		    		var newBucket = {
 		    			"saldo": 0,
@@ -64,13 +64,13 @@ client.addMessageReceiver(true, function (message) {
 		    		};
 		    		doAction(intention, newBucket);
 		    	} else {
-		    		console.log("Error bucket>", error);
+		    		//Console.log("Error bucket>", error);
 		    	}
 		    	
 		    });
 				        
 	    }).catch(function (error) {
-	    	console.log("Error AI>", error);
+	    	//Console.log("Error AI>", error);
 	    });
     
 		doAction = function(intention, bucket) {
@@ -121,10 +121,10 @@ client.addMessageReceiver(true, function (message) {
 	    				break;
 	    			}
 	    			try {
-					console.log("Valores (lancarreceita) >", valores);
+					//Console.log("Valores (lancarreceita) >", valores);
 		    			transacao.valor = parseFloat(valores[0]);
 	    			} catch (error) {
-	    				console.log("Erro conversao valor>", error);
+	    				//Console.log("Erro conversao valor>", error);
 	    			}
 
 	    			bucket.transacoes.push(transacao);
@@ -132,13 +132,13 @@ client.addMessageReceiver(true, function (message) {
 	    			
 	    			var lancarreceitagif;
 					lancarreceitagif = Math.floor(Math.random()*3)+1;
-					console.log("lancarreceitagif>",lancarreceitagif);
+					//Console.log("lancarreceitagif>",lancarreceitagif);
 
 					var gifuri = lancarreceitagif;
 					switch (gifuri) {
 					    case 1:
 					        gifuri = "https://big.assets.huffingtonpost.com/dinheiro07.gif";
-					        console.log("gifuri>", gifuri);
+					        //Console.log("gifuri>", gifuri);
 					        responseMessage = {
 					        	type: "image/gif",
 						        uri: gifuri,
@@ -147,7 +147,7 @@ client.addMessageReceiver(true, function (message) {
 					        break;
 					    case 2:
 					        gifuri = "https://www.reactiongifs.com/r/yb.gif";
-					        console.log("gifuri>", gifuri);
+					        //Console.log("gifuri>", gifuri);
 					        responseMessage = {
 					        	type: "image/gif",
 						        uri: gifuri,
@@ -156,7 +156,7 @@ client.addMessageReceiver(true, function (message) {
 					        break;
 					    case 3:
 					    	gifuri = "https://i.imgur.com/O2MdBQw.gif";
-					        console.log("gifuri>", gifuri);
+					        //Console.log("gifuri>", gifuri);
 					        responseMessage = {
 					        	type: "image/gif",
 						        uri: gifuri,
@@ -165,7 +165,7 @@ client.addMessageReceiver(true, function (message) {
 						break;
 					    default:
 						gifuri = "https://i.imgur.com/O2MdBQw.gif";
-					        console.log("gifuri>", gifuri);
+					        //Console.log("gifuri>", gifuri);
 					        responseMessage = {
 					        	type: "image/gif",
 						        uri: gifuri,
@@ -173,7 +173,7 @@ client.addMessageReceiver(true, function (message) {
 					    	};
 							
 					}
-					console.log("gifuri>",gifuri);
+					//Console.log("gifuri>",gifuri);
 
 	    		break;
 
@@ -192,10 +192,10 @@ client.addMessageReceiver(true, function (message) {
 	    				break;
 	    			}
 	    			try {
-						console.log("Valores (lancardespesa) >", valores);
+						//Console.log("Valores (lancardespesa) >", valores);
 		    			transacao.valor = parseFloat(valores[0]);
 	    			} catch (error) {
-	    				console.log("Erro conversao valor>", error);
+	    				//Console.log("Erro conversao valor>", error);
 	    			}
 
 	    			bucket.transacoes.push(transacao);
@@ -203,13 +203,13 @@ client.addMessageReceiver(true, function (message) {
 
 	    			var lancardespesagif;
 					lancardespesagif = Math.floor(Math.random()*3)+1;
-					console.log("lancardespesagif>",lancardespesagif);
+					//Console.log("lancardespesagif>",lancardespesagif);
 
 					gifuri = lancardespesagif;
 					switch (gifuri) {
 					    case 1:
 					        gifuri = "https://iruntheinternet.com/lulzdump/images/gifs/burning-money-dollars-table-fire-1378245820F.gif";
-					        console.log("gifuri>", gifuri);
+					        //Console.log("gifuri>", gifuri);
 					        responseMessage = {
 					        	type: "image/gif",
 						        uri: gifuri,
@@ -218,7 +218,7 @@ client.addMessageReceiver(true, function (message) {
 					    break;
 					    case 2:
 					        gifuri = "https://i.warosu.org/data/lit/img/0069/15/1438497333802.gif";
-					        console.log("gifuri>", gifuri);
+					        //Console.log("gifuri>", gifuri);
 					        responseMessage = {
 					        	type: "image/gif",
 						        uri: gifuri,
@@ -227,7 +227,7 @@ client.addMessageReceiver(true, function (message) {
 					    break;
 					    case 3:
 					    	gifuri = "https://i.imgur.com/RsI9t.gif";
-					        console.log("gifuri>", gifuri);
+					        //Console.log("gifuri>", gifuri);
 					        responseMessage = {
 					        	type: "image/gif",
 						        uri: gifuri,
@@ -236,7 +236,7 @@ client.addMessageReceiver(true, function (message) {
 					    break;
 					    default:
 						gifuri = "https://i.imgur.com/RsI9t.gif";
-					        console.log("gifuri>", gifuri);
+					        //Console.log("gifuri>", gifuri);
 					        responseMessage = {
 					        	type: "image/gif",
 						        uri: gifuri,
@@ -244,16 +244,16 @@ client.addMessageReceiver(true, function (message) {
 					    	};
 					    break;
 					}
-					console.log("gifuri>",gifuri);
+					//Console.log("gifuri>",gifuri);
 
 	    		break;
 			default:
-				console.log("intention>",transacao);
+				//Console.log("intention>",transacao);
 				responseMessage = "Receita";
 			break;
 	    	}
 
-			console.log("Nome Bucket Criar>>", bucketName);
+			//Console.log("Nome Bucket Criar>>", bucketName);
 		    client.sendCommand({  
 		        "id": Lime.Guid(),
 		        "method": "set",
@@ -261,7 +261,7 @@ client.addMessageReceiver(true, function (message) {
 		        "uri": "/buckets/" + bucketName,
 		        "resource": bucket 
 		    }).then(function () {
-		    	console.log("Saved");
+		    	//Console.log("Saved");
 				client.sendMessage({
 					id: Lime.Guid(),
 					type: (typeof responseMessage == "string") ? "text/plain" : "application/vnd.lime.media-link+json",
@@ -270,18 +270,18 @@ client.addMessageReceiver(true, function (message) {
 				});
 
 		    }).catch(function (error) {
-		    	console.log("Error set bucket>", error);
+		    	//Console.log("Error set bucket>", error);
 		    });
 	    };
 	} catch (error) {
-		console.log("Error>>", error);
+		//Console.log("Error>>", error);
 	}
 });
 
 client.connect()
 .then(function (session) {
-    console.log("Conectado");
+    //Console.log("Conectado");
 })
 .catch(function (err) {
-    console.log(err);
+    //Console.log(err);
 });
