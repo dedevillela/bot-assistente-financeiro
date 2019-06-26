@@ -107,7 +107,7 @@ client.addMessageReceiver(true, function (message) {
 						"tipo": "Receita",
 						"descricao": message.content
 					};
-					var valores = message.content.match(/\d+([.,]\d{1,2})?/);
+					var valores = message.content.match(/\d+([.,]\d{1,2})?/g);
 					if (valores.length === 0) {
 						responseMessage = "Não entendi o valor dessa receita. Tente novamente.";
 						break;
@@ -167,7 +167,7 @@ client.addMessageReceiver(true, function (message) {
 						"tipo": "Despesa",
 						"descricao": message.content
 					};
-					valores = message.content.match(/\d+([.,]\d{1,2})?/);
+					valores = message.content.match(/\d+([.,]\d{1,2})?/g);
 					if (valores.length === 0) {
 						responseMessage = {
 							type: "image/gif",
